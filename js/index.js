@@ -1,8 +1,6 @@
 window.onload = ()=>{
 
     const fullDateToday = new Date();
-    const dateToday = fullDateToday.getUTCDate();
-    const dayToday = fullDateToday.getDay();
     const monthToday = fullDateToday.getMonth();
     const yearToday = fullDateToday.getFullYear();
 
@@ -10,10 +8,10 @@ window.onload = ()=>{
     const prevMonth = new Date(yearToday, monthToday-1);
     const nextMonth = new Date(yearToday, monthToday+1);
 
-    const calDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    // const calDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const calMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    let calTable = document.getElementById('calendar');
+    // let calTable = document.getElementById('calendar');
     let calBody = document.getElementById('cal-body');
     
     if(prevMonth.getMonth === 1){
