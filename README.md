@@ -1,6 +1,6 @@
 # Calendar-Component
 
-![Billbern's Calendar-Component]('./img/mycalendarcomponent.png')
+![Billbern's Calendar-Component](./img/mycalendarcomponent.png)
 
 * Team Members
     * Bernard Abaidoo (BillBern)
