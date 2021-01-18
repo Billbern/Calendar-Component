@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    position: relative;
+    height: 100vh;
+    color: #333;
+}
+
+
+body .wrap{
+    position: relative;
+    display: flex;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 10px;
+    background-color: #fff;
+    flex-direction: column;
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.3);
+    top: 10vh;
+    left: 12.5vw;
+}
+
+
+.wrap > *:not(:last-child){
+    margin-bottom: 24px;
+}
+
+.wrap div table{
+    width: 70vw;
+    height: calc(80vh - 52px);
+}
+
+table thead{
+    background-color: #8c11f1;
+    color: white;
+    height: 48px;
+}
+
+table thead th{
+    width: 10vw;
+}
+
+table tbody{
+    width: 70vw;
+    height: calc(100% - 48px)
+}
+
+table tbody tr{
+    height: 6vh;
+}
+
+table tbody td{
+    border: 1px solid #ddd;
+    text-align: center;
+    height: 6vh;
+}
+
+tbody td > div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+tbody td div > span {
+    position: absolute;
+    font-size: 0.9rem;
+    right: 16px;
+    bottom: 4px;
+    z-index: 2;
+}
+
+tbody td div > span.today{
+    width: 48px;
+    height: 48px;
+    right: 0px;
+    bottom: 0px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: indianred;
+}
+
+tbody td div > span.faded-color{
+    color: #b8b8b8 ;
+}
+
+
+
