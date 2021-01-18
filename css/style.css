@@ -25,10 +25,6 @@ body .wrap{
     left: 12.5vw;
 }
 
-.wrap > *:not(:last-child){
-    margin-bottom: 24px;
-}
-
 .wrap div table{
     width: 70vw;
     height: 80vh;
