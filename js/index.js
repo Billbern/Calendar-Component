@@ -14,45 +14,40 @@ window.onload = ()=>{
     // let calTable = document.getElementById('calendar');
     let calBody = document.getElementById('cal-body');
     
-    if(prevMonth.getMonth === 1){
-        console.log('Month is february');
-    }else{
-        if(firstDay.getDay() != 0){
-            let count = 0;
-            // let 
-            let cellArray = [];
-            let mnt = prevMonth.getMonth();
-            let yrs = (calMonths[mnt] == 'Dec') ? yearToday - 1 : yearToday;
-            
-            while(count < 42){
-                let newString = '';
-                const newCellDate = new Date(yrs, mnt, count+(31-(firstDay.getDay()-1)));
-                
-                if(newCellDate.getMonth() != monthToday){
-                    newString = `<span class="${newCellDate.getMonth() == fullDateToday.getMonth() && newCellDate.getDate() == fullDateToday.getDate()? 'today' : ''} faded-color"  >${newCellDate.getUTCDate()}</span>`;
-                }else{
-                    newString = `<span ${newCellDate.getMonth() == fullDateToday.getMonth() && newCellDate.getDate() == fullDateToday.getDate() ? 'class="today"' : ''}>${newCellDate.getUTCDate()}</span>`;
-                }
-                cellArray.push(newString);
-                
-                if (cellArray.length === 7){
-                    const newRow = document.createElement('tr');
-                    cellArray.forEach(cell=>{
-                        const newCell = document.createElement('td');
-                        const newContainer = document.createElement('div');
-                        newContainer.style.height = '100%';
-                        newContainer.innerHTML = cell;
-                        newCell.appendChild(newContainer);
-                        newRow.appendChild(newCell);
-                    })
-                    calBody.appendChild(newRow);
-                    cellArray = [];
-                }
-                count++       
-            }
+    let count = 0;
+    let cellArray = [];
+    let mnt = prevMonth.getMonth();
+    let mntDays = (mnt === 3 || mnt === 5 || mnt === 8 || mnt === 10) ? 30 : (mnt === 1) ? 28 : 31;
+    
+    let yrs = (calMonths[mnt] == 'Dec') ? yearToday - 1 : yearToday;
+    
+    while(count < 42){
+        let newString = '';
+        
+        const newCellDate = new Date(yrs, mnt, count + (firstDay.getDay() != 0 ? (mntDays - (firstDay.getDay()-1)): mntDays - 6));
+        
+        
+        if(newCellDate.getMonth() != monthToday){
+            newString = `<span class="${newCellDate.getMonth() == fullDateToday.getMonth() && newCellDate.getDate() == fullDateToday.getDate()? 'today' : ''} faded-color"  >${newCellDate.getUTCDate()}</span>`;
         }else{
-            console.log("Start from the begining");
+            newString = `<span ${newCellDate.getMonth() == fullDateToday.getMonth() && newCellDate.getDate() == fullDateToday.getDate() ? 'class="today"' : ''}>${newCellDate.getUTCDate()}</span>`;
         }
+        cellArray.push(newString);
+        
+        if (cellArray.length === 7){
+            const newRow = document.createElement('tr');
+            cellArray.forEach(cell=>{
+                const newCell = document.createElement('td');
+                const newContainer = document.createElement('div');
+                newContainer.style.height = '100%';
+                newContainer.innerHTML = cell;
+                newCell.appendChild(newContainer);
+                newRow.appendChild(newCell);
+            })
+            calBody.appendChild(newRow);
+            cellArray = [];
+        }
+        count++       
     }
     
 }
